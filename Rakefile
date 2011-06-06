@@ -37,7 +37,6 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rake/packagetask'
 require 'rake/gempackagetask'
-require 'test/functional/test_solr_server'
 
 task :default => [:test_units]
 
@@ -133,6 +132,7 @@ task :test => [:test_units] do
   
   # wrap functional tests with a test-specific Solr server
   got_error = TestSolrServer.wrap(SOLR_PARAMS) do
+    require 'test/functional/test_solr_server'
     Rake::Task[:test_functionals].invoke 
   end
 

@@ -33,7 +33,7 @@ PING_RESPONSE
     assert_equal true, response.ok? 
 
     # test shorthand
-    assert true, conn.ping
+    assert conn.ping
   end
 
   def test_bad_ping_response
